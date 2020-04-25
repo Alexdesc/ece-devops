@@ -10,7 +10,7 @@ const create = (user, callback) => {
     return callback(new Error('Wrong users parameters'), null)
 
     // Check if user already exists
-    user.findOne({username: username}, function(err, data) {
+    users.findOne({username: username}, function(err, data) {
       if (err || data !== null) return callback(new Error('The username already exists'), null);
       // Create an instance of model User and save it passing a callback
       var newUser = new user({ username: username, firstname: firstname, lastname: lastname });
