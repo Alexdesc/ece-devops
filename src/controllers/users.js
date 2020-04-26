@@ -19,14 +19,14 @@ const create = (user, callback) => {
         if (err) return callback(new Error(`Coulnd't save user in database`), null);
         callback(null, user.username);
       });
-      console.log("done creating");
+      console.log("User creat !");
     });
 }
 
 // Get method to get a user by username
 const get = (username,callback) => {
   User.findOne({username: username}, function(err, data) {
-    if (err) return callback(new Error(`Couldn't find user in database`), null);
+    if (err) return callback(new Error(`Could not find user in database`), null);
     callback(null, data);
   });
 }
