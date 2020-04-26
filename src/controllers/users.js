@@ -2,44 +2,31 @@ const configure = require('../configure')
 const fs = require('fs')
 const path = require('path')
 const os = require('os')
+var User = require ('../models/User');
 
 const create = (user, callback) => {
-
-  // Check users parameters
-  if(!user.username || !user.firstname || !user.lastname)
+  if(!user.username || !user.firstname || !user.lastname){
     return callback(new Error('Wrong users parameters'), null)
+  }
 
-    // Check if user already exists
-    users.findOne({username: username}, function(err, data) {
-      if (err || data !== null) return callback(new Error('The username already exists'), null);
+    // Check if user exists
+    User.findOne({username: user.username}, function(err, data) {
+      if (err || data !== null) return callback(new Error('The user already exists'), null);
       // Create an instance of model User and save it passing a callback
-      var newUser = new user({ username: username, firstname: firstname, lastname: lastname });
-      newUser.save(function (err) {
-        if (err) return callback(new Error(`Error while trying to save user ${username} in the database`), null);
+      console.log("creating");
+      var newStudent = new User({ username: user.username, firstname: user.firstname, lastname: user.lastname });
+      newStudent.save(function (err) {
+        if (err) return callback(new Error(`Coulnd't save user in database`), null);
         callback(null, user.username);
       });
+      console.log("done creating");
     });
-
-  // Preparing a string with user parameters
-  // const srtUser = user.username + ':' + user.firstname + ':' + user.lastname + os.EOL
-  const srtUser = `${user.username}:${user.firstname}:${user.lastname}${os.EOL}`
-
-  // Defining the file for storing users "./db/users"
-  config = configure()
-  const usersFile = path.join(config.users.db_dir, 'users')
-
-  // Appending to the file "./db/users"
-  fs.appendFile(usersFile, srtUser, (err) => {
-    if (err) throw err
-    callback(null, user.username)
-  })
-
 }
 
 // Get method to get a user by username
-const get = () => {
-  users.findOne({username: username}, function(err, data) {
-    if (err) return callback(new Error(`Error while trying to find user ${username} in the database`), null);
+const get = (username,callback) => {
+  User.findOne({username: username}, function(err, data) {
+    if (err) return callback(new Error(`Couldn't find user in database`), null);
     callback(null, data);
   });
 }

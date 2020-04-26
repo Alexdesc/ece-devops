@@ -26,8 +26,7 @@ describe('Users', () => {
         lastname: 'Kudinov'
       }
       users.create(user, (err, result) => {
-        assert.equal(err, null)
-        assert.equal(result, 'sergkudinov')
+        assert.equal(null, 'sergkudinov')
         done()
       })
     })

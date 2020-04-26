@@ -27,7 +27,7 @@ describe('Users routes', () => {
           .send(user)
           .then((res) => {
             chai.expect(res).to.have.status(201)
-            chai.expect(res.body.username).to.be.equal("sergkudinov")
+            chai.expect(res.body).to.be.equal("sergkudinov")
             chai.expect(res).to.be.json
             done()
           })
