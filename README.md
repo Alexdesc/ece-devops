@@ -1,4 +1,4 @@
-# Projet de Devops : username application
+# Devops project : User application
 ## Zammit Pierre / Descamps Alexandre
 
 ## Project Description :
@@ -10,6 +10,8 @@ For this you need to install on your computer :
 - postman (to post and get request to your database)
 
 We have followed each of the steps to be taken on this project, only some points do not work. For example 2 of our tests do not pass and we cannot solve this problem. There are also some problems with the mangoo database. We manage to connect well but the data is not written in the database. We don't know how to fix these problems.
+
+I force push one of my last commit. This one includes Pierre's work on Travis and on the app code. I apologize for erasing his commits.
 
 ### Step 1
 To clone and run the project and your computer use the following commandes :
