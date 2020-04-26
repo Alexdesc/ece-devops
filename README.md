@@ -8,6 +8,7 @@ For this you need to install on your computer :
 - git (to clone and manage the project)
 - docker (to build an image of your project and run it)
 - postman (to post and get request to your database)
+
 We have followed each of the steps to be taken on this project, only some points do not work. For example 2 of our tests do not pass and we cannot solve this problem. There are also some problems with the mangoo database. We manage to connect well but the data is not written in the database. We don't know how to fix these problems.
 
 ### Step 1
@@ -24,12 +25,15 @@ http://http://localhost:3000/
 ```
 ### Step 2
 To verify that the unary tests have been passed after the last commit of your project, you can use Travis CI. This software allows you to automatically check whether or not the tests were successful.
+
 Travis : https://travis-ci.org/github/Alexdesc/ece-devops/jobs/679363207
 
 You can also deploy your project automatically thanks to heroku.
+
 Heroku : https://dashboard.heroku.com/apps/alex-ece-dev
 
 For our database, we have chosen to use a Mangoo database, which is an online database.
+
 Mangoo : https://cloud.mongodb.com/v2/5ea5a1934241b14c8fcac8b3#metrics/replicaSet/5ea5a3959944241685bd02e6/explorer
 
 ### Step 3
